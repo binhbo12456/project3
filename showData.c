@@ -7,9 +7,9 @@ void show_data(FILE *fp){
     char row[MAXCHAR];
     char *token;
     char *array[7];
-    while (feof(fp) != true)
+    while ( fgets(row, MAXCHAR, fp))
     {
-        fgets(row, MAXCHAR, fp);
+//        fgets(row, MAXCHAR, fp);
         token = strtok(row, ",");
         int i = 0;
         while(token != NULL) {
