@@ -20,6 +20,11 @@ bool searchPosition(char* array[], int id){
 int findByPosition(FILE *fp){
 
     int id;
+    printf("    + 1 = director\n"
+           "    + 2 = manager\n"
+           "    + 3 = team leader\n"
+           "    + 4 = staff\n"
+           "    + 5 = season staff\n");
     printf("Nhap ID Chuc vu Nhan vien Can Tim  \n");
     scanf("%d", &id);
 
