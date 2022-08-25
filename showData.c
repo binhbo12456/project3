@@ -3,6 +3,7 @@
 #include<stdbool.h>
 
 void show_data(FILE *fp){
+    fseek(fp, 0, SEEK_SET);
     char row[MAXCHAR];
     char *token;
     char *array[7];
@@ -15,11 +16,10 @@ void show_data(FILE *fp){
             array[i++] = token;
             token = strtok(NULL, ",");
         }
-        printf("id %s\n", array[0]);
-        printf("name %s\n",array[1]);
-        printf("birth date %s/%s/%s\n", array[2],array[3], array[4]);
-        printf("position %s\n", array[5]);
-        printf("salary %s\n",array[6]);
-        printf("========\n");
+        printf("id %s \t ", array[0]);
+        printf("name %s \t ",array[1]);
+        printf("birth date %s/%s/%s \t ", array[2],array[3], array[4]);
+        printf("position %s \t ", array[5]);
+        printf("salary %s",array[6]);
     }
 }

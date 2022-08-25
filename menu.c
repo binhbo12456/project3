@@ -9,4 +9,5 @@ void menu(){
     printf("4: Tim Thong Tin Nhan Vien Theo Chuc Vu\n");
     printf("5: Tim Thong Tin Nhan Vien Theo Nam Sinh\n");
     printf("6: Tim Thong Tin Nhan Vien Theo Luong\n");
+    printf("0: exit");
 }

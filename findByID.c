@@ -6,12 +6,11 @@
 bool searchID(char* array[], int id){
     if (id == atoi(array[0])){
         printf("\n====== FOUND ====== \n");
-        printf("id %d\n", id);
-        printf("name %s\n", array[1]);
-        printf("birth date %s/%s/%s\n", array[2],array[3], array[4]);
-        printf("position %s\n", array[5]);
-        printf("salary %s\n", array[6]);
-        printf("======      ====== \n");
+        printf("id %s \t ", array[0]);
+        printf("name %s \t ",array[1]);
+        printf("birth date %s/%s/%s \t ", array[2],array[3], array[4]);
+        printf("position %s \t ", array[5]);
+        printf("salary %s",array[6]);
         return true;
     } else {
         return false;

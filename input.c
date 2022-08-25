@@ -10,6 +10,10 @@ void input(struct employee *emp1, FILE *fp)
 {
 
     start:
+    if (fp == NULL)
+    {
+        printf("Couldn't open file\n");
+    }
     printf("\nEnter Id\n");
     scanf("%d", &emp1->id);
     fflush(stdin);
@@ -85,8 +89,10 @@ void input(struct employee *emp1, FILE *fp)
     // int, char, int, int, int   , int, int
     fprintf(fp, "%d,%s,%d,%d,%d,%d,%d\n", emp1->id,
             emp1->name, emp1->Date.day, emp1->Date.month, emp1->Date.year, emp1->position, emp1->salary);
+    fflush(fp); //make fprintf() writes immediately
     fflush(stdin);
 
+//    fflush(NULL); linux
     printf("\nNew employee added to record");
 
 }

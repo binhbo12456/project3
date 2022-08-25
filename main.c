@@ -25,33 +25,37 @@ int main()
         printf("Couldn't open file\n");
         return 1;
     }
-    chose:
-    menu();
-    int option=0;
-    do{
+    int option;
+
+    do {
+        menu();
         printf("\n Nhap Lua Chon \n");
         scanf("%d",&option);
-    }while( (option < 0 ) || (option > 7));
-    switch (option) {
-        case 1:
-            input(&emp, fp);
-            goto chose;
-        case 2:
-            show_data(fp);
-            goto chose;
-        case 3:
-            findById(fp);
-            goto chose;
-        case 4:
-            findByPosition(fp);
-            goto chose;
-        case 5:
-            findByYear(fp);
-            goto chose;
-        case 6:
-            findBySalary(fp);
-            goto chose;
-    }
+        switch (option) {
+            case 1:
+                input(&emp, fp);
+                break;
+            case 2:
+                show_data(fp);
+                break;
+            case 3:
+                findById(fp);
+                break;
+            case 4:
+                findByPosition(fp);
+                break;
+            case 5:
+                findByYear(fp);
+                break;
+            case 6:
+                findBySalary(fp);
+                break;
+//            default:
+//                menu();
+//                break;
+        }
+    }   while(option != 0);
+
     fclose(fp);
     return 0;
 }
