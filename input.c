@@ -4,7 +4,7 @@
 #include "struct.h"
 #include <stdlib.h>
 
-bool checkUniqueID(int id, FILE *fp);
+int getLastID(FILE *fp);
 
 void input(struct employee *emp1, FILE *fp)
 {
@@ -14,25 +14,15 @@ void input(struct employee *emp1, FILE *fp)
     {
         printf("Couldn't open file\n");
     }
-    printf("\nEnter Id\n");
-    scanf("%d", &emp1->id);
-     if ( checkUniqueID(emp1->id, fp) ){
-         printf("Id is Valid");
-     } else {
-         printf("Id is not Unique ");
-         goto start;
-     }
+
+     emp1->id = (getLastID(fp) + 1 );
+    printf("id = %d\n ", emp1->id);
      fflush(stdin);
     printf("\nEnter Name\n");
-//    scanf("%49s", &emp1->name);
-//    fgets( emp1->name, 50, stdin);
-//    scanf ("%[^\n]%*c", emp1->name);
-
     scanf(" %[^\t\n]s", &emp1->name);
     fflush(stdin);
     printf("Enter birth date (DD/MM/YYYY): \n");
 //    scanf("%d/%d/%d",&emp1->Date.day,&emp1->Date.month,&emp1->Date.year);
-
     printf("Enter date \n");
     scanf("%d",&emp1->Date.day);
     fflush(stdin);
@@ -101,14 +91,15 @@ void input(struct employee *emp1, FILE *fp)
 
 }
 
-bool checkUniqueID(int id, FILE *fp){
-//    https://stackoverflow.com/a/29575231
+int getLastID(FILE *fp){
+
     fseek(fp, 0, SEEK_SET);
     char row[MAXCHAR];
     char *token;
     char *array[7];
 
-    bool isUnique = true;
+//    bool isUnique = true;
+    int id = 0;
     while ( fgets(row, MAXCHAR, fp))
     {
         token = strtok(row, ",");
@@ -117,12 +108,8 @@ bool checkUniqueID(int id, FILE *fp){
             array[i++] = token;
             token = strtok(NULL, ",");
         }
-//        printf("id = %d, array0 %d \n", id, atoi(array[0]));
-        if (id == atoi(array[0])){
-            isUnique = false;
-            return isUnique;
-        }
+        id = atoi(array[0]);
     }
 
-    return isUnique;
+    return id;
 }
