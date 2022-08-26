@@ -1,4 +1,4 @@
-- #### id -> int (unique)
+- #### id -> int (unique. auto increment ) 
 
 - #### name -> string
 
