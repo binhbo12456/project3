@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include<string.h>
-#include<stdbool.h>
+#include <string.h>
+#include <stdbool.h>
 
 bool searchYear(char* array[], int id){
     if (id == atoi(array[4])){

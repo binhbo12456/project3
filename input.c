@@ -16,15 +16,19 @@ void input(struct employee *emp1, FILE *fp)
     }
     printf("\nEnter Id\n");
     scanf("%d", &emp1->id);
-    fflush(stdin);
      if ( checkUniqueID(emp1->id, fp) ){
          printf("Id is Valid");
      } else {
          printf("Id is not Unique ");
          goto start;
      }
+     fflush(stdin);
     printf("\nEnter Name\n");
-    scanf("%s", &emp1->name);
+//    scanf("%49s", &emp1->name);
+//    fgets( emp1->name, 50, stdin);
+//    scanf ("%[^\n]%*c", emp1->name);
+
+    scanf(" %[^\t\n]s", &emp1->name);
     fflush(stdin);
     printf("Enter birth date (DD/MM/YYYY): \n");
 //    scanf("%d/%d/%d",&emp1->Date.day,&emp1->Date.month,&emp1->Date.year);

@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <string.h>
-#include "util.c"
 
 #define MAXCHAR 1000
 #define CSVPATH "../data.csv"
